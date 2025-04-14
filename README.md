@@ -6,7 +6,7 @@ For my deep dive into the customer churn dataset, I harnesssed the power of seve
 - **PostgreSQL:** A powerful database management system, suitable for handling the customer churn dataset.
 - **Visual Studio Code:** The code editor used for managing the database, writing and executing queries.
 - **Git & GitHub:** The platform for showcasing my project.
-# Key Insights
+# Key Insights and Recommendations
 ## Churn Rate by Gender
 Here is the query I used to find the churn rate by gender.
 ```SQL
@@ -14,9 +14,25 @@ SELECT gender, ROUND((SUM(churn)::NUMERIC/COUNT(churn))*100,0) AS "churn rate"
 FROM customer_churn
 GROUP BY gender
 ```
-A churn rate of 55% was observed among females while a churn rate of  39% was observed among males. This implies that females are more likely to churn than males.
-Churn Rate by Age Distribution
-The highest churn rate (53%) was observed in the Elderly (people aged between 56 and 65) followed by the Middle Aged (people aged between 46 and 55) with a churn rate of 49% and a tie of 45% in Adults (people aged between 36 and 45) and Young Adults (people aged between 18 and 35). This shows that the potential of a customer churning increases as he ages. The company can lower churn rate by launching campaigns to target younger people or offering suitable incentives to retain older older customers. 
+A churn rate of 55% was observed among females while a churn rate of  39% was observed among males. This implies that females are more likely to churn than males. Tailored marketing surveys should be conducted to understand the churn rate of female customers and features that resonate with female customers should be launched.
+# Churn Rate by Age Distribution
+Here is the query I used to find the churn rate by age distribution.
+```SQL
+WITH age_groups AS (SELECT customerid, CASE
+            WHEN age BETWEEN 18 AND 35 THEN 'Young Adults'
+            WHEN age BETWEEN 36 AND 45 THEN 'Adults'
+            WHEN age BETWEEN 46 AND 55 THEN 'Middle Aged'
+            WHEN age BETWEEN 56 AND 65 THEN 'Elderly'
+        END AS "age distribution"
+FROM customer_churn)
+
+SELECT "age distribution", ROUND((SUM(churn)::NUMERIC/COUNT(churn))*100,0) AS "churn rate"
+FROM customer_churn
+JOIN age_groups
+ON customer_churn.customerid = age_groups.customerid
+GROUP BY "age distribution"
+```
+The highest churn rate (53%) was observed in the Elderly (people aged between 56 and 65) followed by the Middle Aged (people aged between 46 and 55) with a churn rate of 49% and a tie of 45% in Adults (people aged between 36 and 45) and Young Adults (people aged between 18 and 35). This shows that the potential of a customer churning increases as he ages. The company can lower churn rate by launching campaigns to target young adults to attract customers with lower tendencies to churn or offering suitable incentives to retain older customers.
 ## Churn Rate by Tenure
 Here is the query I used to find the churn rate by Tenure
 ```SQL
@@ -102,5 +118,5 @@ FROM customer_churn
 GROUP BY "Contract Length"
 ```
 The churn rate was observed to be highest among customers on a monthly contract (52%), followed by annual subscribers (46%) and least among quarterly subscribers (44%).
-
-
+# Conclusion
+The project reinforced my SQL skills and provided valuable insights into customer churn which will be helpful in improving customer retention and contribute to the overall growth of the company.
