@@ -50,7 +50,7 @@ JOIN tenure_groups
 ON customer_churn.customerid = tenure_groups.customerid
 GROUP BY "tenure distribution"
 ```
-New comers (customers who used the service between 1 and 15 months) had the least churn rate (31%), followed by Regulars (customers who used the service between 16 and 30 months) with Veterans (customers who used the service between 31 and 45 months) and Loyalists ( (customers who used the service between 46 and 60 months) having a tie of 56%. This implies that the possibility of churning increases as the time of usage of the service increases and the company struggles with retaining customers. This could be as a result of customers desiring to try something new or other factors. Long time customers can be retained by offering incentives to them or making regular changes to their services to provide a refreshing experience. Also, long term active customers should be surveyed to know and address their issues.
+New comers (customers who used the service between 1 and 15 months) had the least churn rate (31%), followed by Regulars (customers who used the service between 16 and 30 months) with Veterans (customers who used the service between 31 and 45 months) and Loyalists (customers who used the service between 46 and 60 months) having a tie of 56%. This implies that the possibility of churning increases as the time of usage of the service increases and the company struggles with retaining customers. This could be as a result of customers desiring to try something new or other factors. Long time customers can be retained by offering incentives to them or making regular changes to their services to provide a refreshing experience. Also, long term active customers should be surveyed to know and address their issues.
 ## Churn Rate by Usage Usage Frequency
 Here is the query I used to find the churn rate by usage frequency.
 ```SQL
@@ -67,7 +67,7 @@ JOIN usage_groups
 ON customer_churn.customerid = usage_groups.customerid
 GROUP BY "frequency distribution"
 ```
-The churn rate was observed to be highest (55%) in less frequent users (usage frequency between 1 and 10) with frequent users (usage frequency between 11 and 20) and very frequent users (usage frequency between 21 and 30) tieing at 43%. This implies that customers are less likely to churn if the use the service frequently. This could be due to established familiarity with frequent use. Encourage less frequent users to engage more through reminders or personalized recommendations.
+The churn rate was observed to be highest (55%) in less frequent users (usage frequency between 1 and 10) with frequent users (usage frequency between 11 and 20) and very frequent users (usage frequency between 21 and 30) tieing at 43%. This implies that customers are less likely to churn if they use the service frequently. This could be due to established familiarity with frequent use. Encourage less frequent users to engage more through reminders or personalized recommendations.
 ## Churn Rate by Number of Support Calls
 Here is the query I used to find the churn rate by support calls.
 ```SQL
@@ -84,7 +84,7 @@ JOIN support_groups
 ON customer_churn.customerid = support_groups.customerid
 GROUP BY "calls distribution"
 ```
-The churn rate was observed to be highest (61%) among users with many support calls (support calls between 7 and 10), followed by users with moderate support calls (support calls between 4 and 6) and least in user's with few support calls (support calls between 0 and 3). This implies that the possibility of churning increases with an increase in number of support calls. Customers having many support calls indicates dissatisfaction and regular issues with services. Churn can be averted by permanently addressing customer issues in fewer interactions and improving user experience to reduce the need for more customer support calls.
+The churn rate was observed to be highest (61%) among users with many support calls (support calls between 7 and 10), followed by users with moderate support calls (support calls between 4 and 6) and least in users with few support calls (support calls between 0 and 3). This implies that the possibility of churning increases with an increase in number of support calls. Customers having many support calls indicates dissatisfaction and regular issues with services. Churn can be averted by permanently addressing customer issues in fewer interactions and improving user experience to reduce the need for more customer support calls.
 ## Churn Rate by Payment Delay
 Here is the query I used to find the churn rate by payment delay.
 ```SQL
@@ -101,7 +101,7 @@ JOIN payment_delay_groups
 ON customer_churn.customerid = payment_delay_groups.customerid
 GROUP BY "payment delay distribution"
 ```
-The churn rate was observed to be highest (77%) among users that make very late payments (payment delay between 21 and 30 days), followed by users with moderately late payments (payment delay between 11 and 20 days) and least in user's with just late payments (payment delay between 0 and 10 days). This implies that the possibility of churning increases with an increase in delay of making payments. This issue can be addressed by offering flexible subscription options to help users make payments at more convenient times to reduce delay. Also, the subscription fee can be revised if it is perceived to be too high especially compared to competitors.
+The churn rate was observed to be highest (77%) among users that make very late payments (payment delay between 21 and 30 days), followed by users with moderately late payments (payment delay between 11 and 20 days) and least in users with just late payments (payment delay between 0 and 10 days). This implies that the possibility of churning increases with an increase in delay of making payments. This issue can be addressed by offering flexible subscription options to help users make payments at more convenient times to reduce delay. Also, the subscription fee can be revised if it is perceived to be too high especially compared to competitors.
 ## Churn Rate by Subscription Type
 Here is the query I used to find the churn rate by subscription type.
 ```SQL
@@ -119,4 +119,4 @@ GROUP BY "Contract Length"
 ```
 The churn rate was observed to be highest among customers on a monthly contract (52%), followed by annual subscribers (46%) and least among quarterly subscribers (44%). This can be addressed  by promoting and incentivizing long term contracts over short term ones.
 # Conclusion
-The project reinforced my SQL skills and provided valuable insights into customer churn which will be helpful in improving customer retention and contribute to the overall growth of the company.
+The project demonstrated and reinforced my SQL skills, and provided valuable insights into customer churn which will be helpful in improving customer retention and contribute to the overall growth of the company.
