@@ -34,7 +34,7 @@ GROUP BY "age distribution"
 ```
 The highest churn rate (53%) was observed in the Elderly (people aged between 56 and 65) followed by the Middle Aged (people aged between 46 and 55) with a churn rate of 49% and a tie of 45% in Adults (people aged between 36 and 45) and Young Adults (people aged between 18 and 35). This shows that the potential of a customer churning increases as he ages. The company can lower churn rate by launching campaigns to target young adults to attract customers with lower tendencies to churn or offering suitable incentives to retain older customers.
 ## Churn Rate by Tenure
-Here is the query I used to find the churn rate by Tenure
+Here is the query I used to find the churn rate by tenure.
 ```SQL
 WITH tenure_groups AS (SELECT customerid, CASE
             WHEN tenure BETWEEN 1 AND 15 THEN 'Newcomers'
@@ -67,7 +67,7 @@ JOIN usage_groups
 ON customer_churn.customerid = usage_groups.customerid
 GROUP BY "frequency distribution"
 ```
-The churn rate was observed to be highest (55%) in less frequent users (usage frequency between 1 and 10) with frequent users (usage frequency between 11 and 20) and very frequent users (usage frequency between 21 and 30) tieing at 43%. This implies that customers are less likely to churn if the use the service frequently. This could be due to established familiarity with frequent use.
+The churn rate was observed to be highest (55%) in less frequent users (usage frequency between 1 and 10) with frequent users (usage frequency between 11 and 20) and very frequent users (usage frequency between 21 and 30) tieing at 43%. This implies that customers are less likely to churn if the use the service frequently. This could be due to established familiarity with frequent use. Encourage less frequent users to engage more through reminders or personalized recommendations.
 ## Churn Rate by Number of Support Calls
 Here is the query I used to find the churn rate by support calls.
 ```SQL
@@ -84,7 +84,7 @@ JOIN support_groups
 ON customer_churn.customerid = support_groups.customerid
 GROUP BY "calls distribution"
 ```
-The churn rate was observed to be highest (61%) among users with many support calls (support calls between 7 and 10), followed by users with moderate support calls (support calls between 4 and 6) and least in user's with few support calls (support calls between 0 and 3). This implies that the possibility of churning increases with an increase in number of support calls. Customers having many support calls indicates dissatisfaction and regular issues with services. Churn can be averted by permanently addressing customer issues and improving user experience to reduce the need for more customer support calls.
+The churn rate was observed to be highest (61%) among users with many support calls (support calls between 7 and 10), followed by users with moderate support calls (support calls between 4 and 6) and least in user's with few support calls (support calls between 0 and 3). This implies that the possibility of churning increases with an increase in number of support calls. Customers having many support calls indicates dissatisfaction and regular issues with services. Churn can be averted by permanently addressing customer issues in fewer interactions and improving user experience to reduce the need for more customer support calls.
 ## Churn Rate by Payment Delay
 Here is the query I used to find the churn rate by payment delay.
 ```SQL
@@ -117,6 +117,6 @@ SELECT "Contract Length", ROUND((SUM(churn)::NUMERIC/COUNT(churn))*100,0) AS "ch
 FROM customer_churn
 GROUP BY "Contract Length"
 ```
-The churn rate was observed to be highest among customers on a monthly contract (52%), followed by annual subscribers (46%) and least among quarterly subscribers (44%).
+The churn rate was observed to be highest among customers on a monthly contract (52%), followed by annual subscribers (46%) and least among quarterly subscribers (44%). This can be addressed  by promoting and incentivizing long term contracts over short term ones.
 # Conclusion
 The project reinforced my SQL skills and provided valuable insights into customer churn which will be helpful in improving customer retention and contribute to the overall growth of the company.
